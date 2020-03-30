@@ -98,7 +98,7 @@ az role assignment create \
 ```bash
 # download the example and configure it with your vars
 
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/10_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json -o helloImageTemplateWin.json
+curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json -o helloImageTemplateWin.json
 
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateWin.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateWin.json
@@ -115,7 +115,7 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateWin.json
 
 az resource create \
     --resource-group $imageResourceGroup \
-    --properties @helloImageTemplateWin02.json \
+    --properties @helloImageTemplateWin.json \
     --is-full-object \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
     -n helloImageTemplateWin02
@@ -126,7 +126,7 @@ az resource create \
 az resource invoke-action \
      --resource-group $imageResourceGroup \
      --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
-     -n helloImageTemplateWin \
+     -n helloImageTemplateWin02 \
      --action Run 
 
 # wait approx 15mins
@@ -158,7 +158,7 @@ You should see these two directories created during image customization:
 az resource delete \
     --resource-group $imageResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateWin01
+    -n helloImageTemplateWin02
 
 az role assignment delete \
     --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
@@ -172,4 +172,4 @@ az group delete -n $imageResourceGroup
 ```
 
 ## Next Steps
-If you loved or hated Image Builder, please go to next steps to leave feedback, contact dev team, more documentation, or try more examples [here](../quickquickstarts/nextSteps.md)]
+If you loved or hated Image Builder, please go to next steps to leave feedback, contact dev team, more documentation, or try more examples [here](./quickquickstarts/nextSteps.md)]
