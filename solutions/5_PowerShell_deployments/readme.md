@@ -70,7 +70,7 @@ $runOutputName="winclientR01"
 New-AzResourceGroup -Name $imageResourceGroup -Location $location
 
 # assign permissions for that resource group, so that AIB can distribute the image to it
-New-AzRoleAssignment -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 -Scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup -RoleDefinitionName Contributor
+New-AzRoleAssignment -ObjectId d367c94c-bcd0-4425-acbf-4b5ab46c90f0 -Scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup -RoleDefinitionName Contributor
 ```
 
 # Configure the Image Template
