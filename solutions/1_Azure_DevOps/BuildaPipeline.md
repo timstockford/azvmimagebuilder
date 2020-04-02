@@ -88,7 +88,7 @@ az sig image-definition create \
 
 # assign the image builder spn rights to inject the image into the chosen resource group
 az role assignment create \
-    --assignee d367c94c-bcd0-4425-acbf-4b5ab46c90f0 \
+    --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
     --role Contributor \
     --scope /subscriptions/$subscriptionID/resourceGroups/$aibResourceGroup
 
